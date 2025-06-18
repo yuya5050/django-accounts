@@ -1,0 +1,41 @@
+<!-- templates/accounts/profile.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>プロフィールページ</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 2em;
+        }
+        .profile-card {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 1.5em;
+            max-width: 500px;
+            background-color: #f9f9f9;
+        }
+        .profile-card h2 {
+            margin-top: 0;
+        }
+        .actions {
+            margin-top: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-card">
+        <h2>{{ user.username }}さんのプロフィール</h2>
+        <p><strong>ユーザー名:</strong> {{ user.username }}</p>
+        <p><strong>メールアドレス:</strong> {{ user.email }}</p>
+        <p><strong>ログイン日時:</strong> {{ user.last_login }}</p>
+        <p><strong>登録日:</strong> {{ user.date_joined }}</p>
+
+        <div class="actions">
+     <a href="{% url 'attendance_input_page' %}">勤怠の入力</a>
+            <a href="{% url 'logout' %}">ログアウト</a>
+        </div>
+    </div>
+</body>
+</html>
